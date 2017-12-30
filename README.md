@@ -3,6 +3,14 @@ Decentralized charity token
 
 GIFT is indivisible infungible ERC-721 Token. Every token is connected with unique person and unique accomplished good deed.
 
+Gift Challenge Mainnet: 0x84b5522F62e215151D8D6a1377b962f3a440F8F4
+Interface: 
+
+Gift Token Mainnet:
+0x7fdf3e97a035447202f0e43f11eda2365bf86144
+
+(**Do not** send money directly to these addresses)
+
 Purpose
 ---------------
 

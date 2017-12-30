@@ -28,8 +28,8 @@ module.exports = {
       mainnet: {
           provider: new HDWalletProvider(mnemonic, "https://mainnet.infura.io/jPkVat66IVKkmtAsy0DJ"),
           network_id: 1,
-          gas: 8000000,
-          gasPrice: 6e9
+          gas: 7000000,
+          gasPrice: 20e9
       }
   },
   test_directory: 'transpiled/test',

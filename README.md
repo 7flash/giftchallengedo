@@ -27,7 +27,7 @@ Help
 
 You can participate as servant, investor or contributor.
 
-###Servant
+### Servant
 
 If you have time and you see the needs of people around you can follow next steps:
 1) Make a gift to someone who need it
@@ -35,13 +35,13 @@ If you have time and you see the needs of people around you can follow next step
 3) Call method `createToken` with your ethereum address and link to your post
 5) Receive payment from investors... and goto 1 step.
 
-###Investor
+### Investor
 If you have money and you want to buy gifts and motivate servants you can follow next steps:
 1) Find the action you like in social network using hashtag #giftchallengedo
 2) Check the price of token linked to the action
 3) Call method `buyToken` with link to the post and payment you want to give. Your payment should be at least 2x more than last payment. It will be distributed between previous investor and servant equally.
 
-###Contributor
+### Contributor
 Need for interface. Community will really appreciate it. Also thanks for any questions, issues and pull requests.
 
 ##### Dependencies

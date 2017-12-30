@@ -51,13 +51,13 @@ contract("Gift Challenge", ([deployer, servant, investor, anotherInvestor]) => {
         let res: Web3.TransactionReceipt;
 
         before(async () => {
-            const txHash = await challenge.claimGift.sendTransactionAsync(servant, post, {from: investor});
+            const txHash = await challenge.createToken.sendTransactionAsync(servant, post, {from: investor});
             res = await web3.eth.getTransactionReceipt(txHash);
         });
 
         it("should emit post claimed log", async () => {
             const logs = ABIDecoder.decodeLogs(res.logs);
-            const logActual = logs.find(e => e && e.name === 'GiftClaimed');
+            const logActual = logs.find(e => e && e.name === 'TokenCreated');
 
             const logExpected = LogTokenCreated(challenge.address, servant, post, 0);
 
@@ -84,7 +84,7 @@ contract("Gift Challenge", ([deployer, servant, investor, anotherInvestor]) => {
 
     describe("another investor claim post that was already claimed", async () => {
         it("should throw", async () => {
-           await expect(challenge.claimGift.sendTransactionAsync(servant, post, {from: anotherInvestor}))
+           await expect(challenge.createToken.sendTransactionAsync(servant, post, {from: anotherInvestor}))
                .to.eventually.be.rejectedWith(REVERT_ERROR);
         });
     });
@@ -93,13 +93,13 @@ contract("Gift Challenge", ([deployer, servant, investor, anotherInvestor]) => {
         let res: Web3.TransactionReceipt;
 
         before(async () => {
-           const txHash = await challenge.claimToken.sendTransactionAsync(post, {from: investor, value: payment});
+           const txHash = await challenge.buyToken.sendTransactionAsync(post, {from: investor, value: payment});
            res = await web3.eth.getTransactionReceipt(txHash);
         });
 
         it("should emit token claimed log", async () => {
            const logs = ABIDecoder.decodeLogs(res.logs);
-           const logActual = logs.find(e => e && e.name === 'TokenClaimed');
+           const logActual = logs.find(e => e && e.name === 'TokenBought');
 
            const logExpected = LogTokenBought(challenge.address, 0, servant, investor, 0, payment);
 
@@ -118,7 +118,7 @@ contract("Gift Challenge", ([deployer, servant, investor, anotherInvestor]) => {
        let res: Web3.TransactionReceipt;
 
        before(async () => {
-           const txHash = await challenge.claimToken.sendTransactionAsync(post, {from: anotherInvestor, value: payment.mul(2)});
+           const txHash = await challenge.buyToken.sendTransactionAsync(post, {from: anotherInvestor, value: payment.mul(2)});
            res = await web3.eth.getTransactionReceipt(txHash);
        });
 
@@ -126,7 +126,7 @@ contract("Gift Challenge", ([deployer, servant, investor, anotherInvestor]) => {
 
     describe("investor claim token with less than double the previous payment", async () => {
        it("should throw", async () => {
-           await expect(challenge.claimToken.sendTransactionAsync(post, {from: investor, value: payment.mul(2).sub(1)}))
+           await expect(challenge.buyToken.sendTransactionAsync(post, {from: investor, value: payment.mul(2).sub(1)}))
                .to.eventually.be.rejectedWith(REVERT_ERROR);
         });
     });

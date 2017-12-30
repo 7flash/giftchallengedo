@@ -4,7 +4,6 @@ const fs = require('fs');
 const path = require('path');
 
 const mnemonic = fs.readFileSync(path.resolve(__dirname, "mnemonic")).toString().trim();
-const mainnetRemoteNode = "secret";
 
 module.exports = {
   networks: {
@@ -27,7 +26,7 @@ module.exports = {
           gasPrice: 30e9
       },
       mainnet: {
-          provider: new HDWalletProvider(mnemonic, mainnetRemoteNode),
+          provider: new HDWalletProvider(mnemonic, "https://mainnet.infura.io/jPkVat66IVKkmtAsy0DJ"),
           network_id: 1,
           gas: 8000000,
           gasPrice: 6e9

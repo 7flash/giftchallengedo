@@ -17,7 +17,7 @@ export function LogTokenCreated(
             ["_link", link],
             ["_token", token]
         ]),
-        name: "PostClaimed"
+        name: "TokenCreated"
     }
 }
 
@@ -38,7 +38,7 @@ export function LogTokenBought(
             ["_previousPrice", previousPrice],
             ["_newPrice", newPrice]
         ]),
-        name: "TokenClaimed"
+        name: "TokenBought"
     }
 }
 

@@ -357,7 +357,7 @@
       "absolutePath": "/src/contracts/test/TestMintableNFT.sol",
       "exportedSymbols": {
         "TestMintableNFT": [
-          1203
+          1192
         ]
       }
     },
@@ -370,45 +370,45 @@
             ".18"
           ]
         },
-        "id": 1183,
+        "id": 1172,
         "name": "PragmaDirective",
         "src": "0:23:7"
       },
       {
         "attributes": {
-          "SourceUnit": 625,
+          "SourceUnit": 614,
           "absolutePath": "/src/contracts/MintableNonFungibleToken.sol",
           "file": "../MintableNonFungibleToken.sol",
-          "scope": 1204,
+          "scope": 1193,
           "symbolAliases": [
             null
           ],
           "unitAlias": ""
         },
-        "id": 1184,
+        "id": 1173,
         "name": "ImportDirective",
         "src": "25:41:7"
       },
       {
         "attributes": {
           "contractDependencies": [
-            145,
-            211,
-            624,
-            1181
+            129,
+            195,
+            613,
+            1170
           ],
           "contractKind": "contract",
           "documentation": "@title TestMintableNFT\n * Test wrapper for MintableNonFungibleToken with a constructor that\nlets users specify the name and symbol of the token.",
           "fullyImplemented": true,
           "linearizedBaseContracts": [
-            1203,
-            624,
-            1181,
-            145,
-            211
+            1192,
+            613,
+            1170,
+            129,
+            195
           ],
           "name": "TestMintableNFT",
-          "scope": 1204
+          "scope": 1193
         },
         "children": [
           {
@@ -422,15 +422,15 @@
                 "attributes": {
                   "contractScope": null,
                   "name": "MintableNonFungibleToken",
-                  "referencedDeclaration": 624,
+                  "referencedDeclaration": 613,
                   "type": "contract MintableNonFungibleToken"
                 },
-                "id": 1185,
+                "id": 1174,
                 "name": "UserDefinedTypeName",
                 "src": "259:24:7"
               }
             ],
-            "id": 1186,
+            "id": 1175,
             "name": "InheritanceSpecifier",
             "src": "259:24:7"
           },
@@ -444,7 +444,7 @@
               ],
               "name": "TestMintableNFT",
               "payable": false,
-              "scope": 1203,
+              "scope": 1192,
               "stateMutability": "nonpayable",
               "superFunction": null,
               "visibility": "public"
@@ -456,7 +456,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "_name",
-                      "scope": 1202,
+                      "scope": 1191,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "string memory",
@@ -469,12 +469,12 @@
                           "name": "string",
                           "type": "string storage pointer"
                         },
-                        "id": 1187,
+                        "id": 1176,
                         "name": "ElementaryTypeName",
                         "src": "315:6:7"
                       }
                     ],
-                    "id": 1188,
+                    "id": 1177,
                     "name": "VariableDeclaration",
                     "src": "315:12:7"
                   },
@@ -482,7 +482,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "_symbol",
-                      "scope": 1202,
+                      "scope": 1191,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "string memory",
@@ -495,17 +495,17 @@
                           "name": "string",
                           "type": "string storage pointer"
                         },
-                        "id": 1189,
+                        "id": 1178,
                         "name": "ElementaryTypeName",
                         "src": "329:6:7"
                       }
                     ],
-                    "id": 1190,
+                    "id": 1179,
                     "name": "VariableDeclaration",
                     "src": "329:14:7"
                   }
                 ],
-                "id": 1191,
+                "id": 1180,
                 "name": "ParameterList",
                 "src": "314:30:7"
               },
@@ -516,7 +516,7 @@
                   ]
                 },
                 "children": [],
-                "id": 1192,
+                "id": 1181,
                 "name": "ParameterList",
                 "src": "364:0:7"
               },
@@ -539,13 +539,13 @@
                             "attributes": {
                               "argumentTypes": null,
                               "overloadedDeclarations": [
-                                631
+                                620
                               ],
-                              "referencedDeclaration": 631,
+                              "referencedDeclaration": 620,
                               "type": "string storage ref",
                               "value": "name"
                             },
-                            "id": 1193,
+                            "id": 1182,
                             "name": "Identifier",
                             "src": "374:4:7"
                           },
@@ -555,21 +555,21 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 1188,
+                              "referencedDeclaration": 1177,
                               "type": "string memory",
                               "value": "_name"
                             },
-                            "id": 1194,
+                            "id": 1183,
                             "name": "Identifier",
                             "src": "381:5:7"
                           }
                         ],
-                        "id": 1195,
+                        "id": 1184,
                         "name": "Assignment",
                         "src": "374:12:7"
                       }
                     ],
-                    "id": 1196,
+                    "id": 1185,
                     "name": "ExpressionStatement",
                     "src": "374:12:7"
                   },
@@ -590,13 +590,13 @@
                             "attributes": {
                               "argumentTypes": null,
                               "overloadedDeclarations": [
-                                633
+                                622
                               ],
-                              "referencedDeclaration": 633,
+                              "referencedDeclaration": 622,
                               "type": "string storage ref",
                               "value": "symbol"
                             },
-                            "id": 1197,
+                            "id": 1186,
                             "name": "Identifier",
                             "src": "396:6:7"
                           },
@@ -606,41 +606,41 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 1190,
+                              "referencedDeclaration": 1179,
                               "type": "string memory",
                               "value": "_symbol"
                             },
-                            "id": 1198,
+                            "id": 1187,
                             "name": "Identifier",
                             "src": "405:7:7"
                           }
                         ],
-                        "id": 1199,
+                        "id": 1188,
                         "name": "Assignment",
                         "src": "396:16:7"
                       }
                     ],
-                    "id": 1200,
+                    "id": 1189,
                     "name": "ExpressionStatement",
                     "src": "396:16:7"
                   }
                 ],
-                "id": 1201,
+                "id": 1190,
                 "name": "Block",
                 "src": "364:55:7"
               }
             ],
-            "id": 1202,
+            "id": 1191,
             "name": "FunctionDefinition",
             "src": "290:129:7"
           }
         ],
-        "id": 1203,
+        "id": 1192,
         "name": "ContractDefinition",
         "src": "231:190:7"
       }
     ],
-    "id": 1204,
+    "id": 1193,
     "name": "SourceUnit",
     "src": "0:422:7"
   },
@@ -650,5 +650,5 @@
   },
   "networks": {},
   "schemaVersion": "1.0.1",
-  "updatedAt": "2017-12-28T18:26:43.849Z"
+  "updatedAt": "2017-12-30T20:48:45.603Z"
 }

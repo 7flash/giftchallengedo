@@ -1,10 +1,18 @@
+const HDWalletProvider = require('truffle-hdwallet-provider');
+
+const fs = require('fs');
+const path = require('path');
+
+const mnemonic = fs.readFileSync(path.resolve(__dirname, "mnemonic")).toString().trim();
+const mainnetRemoteNode = "secret";
+
 module.exports = {
   networks: {
     development: {
       host: 'localhost',
       port: 8545,
       network_id: '*', // Match any network id,
-      gas: 4712388,
+      gas: 8e6,
     },
     kovan: {
       host: 'localhost',
@@ -12,7 +20,25 @@ module.exports = {
       network_id: '42',
       gas: 4712388,
     },
+      ropsten: {
+          provider: new HDWalletProvider(mnemonic, "https://ropsten.infura.io/jPkVat66IVKkmtAsy0DJ"),
+          network_id: 3,
+          gas: 4600000,
+          gasPrice: 30e9
+      },
+      mainnet: {
+          provider: new HDWalletProvider(mnemonic, mainnetRemoteNode),
+          network_id: 1,
+          gas: 8000000,
+          gasPrice: 6e9
+      }
   },
   test_directory: 'transpiled/test',
   migrations_directory: 'transpiled/migrations',
+	solc: {
+		optimizer: {
+			enabled: true,
+			runs: 200
+		}
+	}
 };

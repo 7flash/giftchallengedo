@@ -4,7 +4,7 @@ import * as ABIDecoder from "abi-decoder";
 import * as BigNumber from "bignumber.js";
 import * as Web3 from "web3";
 
-export function LogGiftClaimed(
+export function LogTokenCreated(
     contract: Address,
     servant: Address,
     link: string,
@@ -21,7 +21,7 @@ export function LogGiftClaimed(
     }
 }
 
-export function LogTokenClaimed(
+export function LogTokenBought(
     contract: Address,
     token: UInt,
     previousOwner: Address,

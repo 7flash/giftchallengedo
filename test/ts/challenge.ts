@@ -6,7 +6,6 @@ import * as ABIDecoder from "abi-decoder";
 import {BigNumberSetup} from "./utils/bignumber_setup.js";
 import {chaiSetup} from "./utils/chai_setup.js";
 import {INVALID_OPCODE, REVERT_ERROR} from "./utils/constants";
-//import {LogClaimedToken, LogClaimedPost, Logui} from "./utils/logs";
 
 chaiSetup.configure();
 const expect = chai.expect;
@@ -15,7 +14,7 @@ BigNumberSetup.configure();
 
 import {GiftChallengeContract} from "../../types/generated/gift_challenge";
 import {CharityTokenContract} from "../../types/generated/charity_token";
-import {LogGiftClaimed, LogTokenClaimed} from "./utils/logs";
+import {LogTokenCreated, LogTokenBought} from "./utils/logs";
 
 const challengeContract = artifacts.require("GiftChallenge");
 const tokenContract = artifacts.require("CharityToken");
@@ -27,7 +26,7 @@ contract("Gift Challenge", ([deployer, servant, investor, anotherInvestor]) => {
     let challenge: GiftChallengeContract;
     let token: CharityTokenContract;
 
-    const post = "http://facebook.com/userid/postid";
+    const post = "facebook.com/userid/postid";
 
     let payment:BigNumber.BigNumber = new BigNumber.BigNumber(web3.toWei(0.01, "ether"));
 
@@ -60,9 +59,9 @@ contract("Gift Challenge", ([deployer, servant, investor, anotherInvestor]) => {
             const logs = ABIDecoder.decodeLogs(res.logs);
             const logActual = logs.find(e => e && e.name === 'GiftClaimed');
 
-            const logExpected = LogGiftClaimed(challenge.address, servant, post, 0);
+            const logExpected = LogTokenCreated(challenge.address, servant, post, 0);
 
-            //expect(logActual).to.deep.equal(logExpected);
+            expect(logActual).to.deep.equal(logExpected);
         });
 
         it("should create new token for servant", async () => {
@@ -102,7 +101,7 @@ contract("Gift Challenge", ([deployer, servant, investor, anotherInvestor]) => {
            const logs = ABIDecoder.decodeLogs(res.logs);
            const logActual = logs.find(e => e && e.name === 'TokenClaimed');
 
-           const logExpected = LogTokenClaimed(challenge.address, 0, servant, investor, 0, payment);
+           const logExpected = LogTokenBought(challenge.address, 0, servant, investor, 0, payment);
 
            expect(logActual).to.deep.equal(logExpected);
         });

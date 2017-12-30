@@ -18,14 +18,15 @@ contract GiftChallenge {
 
     CharityToken public token;
 
-    event GiftClaimed(address indexed _servant, string indexed _link, uint indexed _token);
-    event TokenClaimed(uint indexed _token, address indexed _previousOwner, address indexed _newOwner, uint _previousPrice, uint _newPrice);
-
     function GiftChallenge() {
         token = createToken();
     }
 
-    function claimGift(address _servant, string _link) public {
+    function() payable {
+        throw;
+    }
+
+    function createToken(address _servant, string _link) public {
         require(_servant != address(0));
 
         Gift item = gifts[_link];
@@ -39,10 +40,10 @@ contract GiftChallenge {
         item.servant = _servant;
         item.isGift = true;
 
-        GiftClaimed(_servant, _link, tokenId);
+        TokenCreated(_servant, _link, tokenId);
     }
 
-    function claimToken(string _link) external payable {
+    function buyToken(string _link) external payable {
         Gift memory item = gifts[_link];
 
         require(msg.value >= item.lastPayment.mul(2));
@@ -59,7 +60,7 @@ contract GiftChallenge {
 
         gifts[_link].lastPayment = msg.value;
 
-        TokenClaimed(item.tokenId, owner, msg.sender, item.lastPayment, msg.value);
+        TokenBought(item.tokenId, owner, msg.sender, item.lastPayment, msg.value);
     }
 
     function getPrice(string _link) public constant returns(uint) {
@@ -83,4 +84,7 @@ contract GiftChallenge {
     function createToken() internal returns(CharityToken _token) {
         return new CharityToken("Gift Challenge Token", "GIFT");
     }
+
+    event TokenCreated(address indexed _servant, string _link, uint indexed _token);
+    event TokenBought(uint indexed _token, address indexed _previousOwner, address indexed _newOwner, uint _previousPrice, uint _newPrice);
 }

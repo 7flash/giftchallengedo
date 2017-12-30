@@ -1,6 +1,5 @@
-const NFT = artifacts.require("NonFungibleToken");
-const MintableNFT = artifacts.require("MintableNonFungibleToken");
+const GiftChallenge = artifacts.require("GiftChallenge");
 
 module.exports = (deployer: any) => {
-    deployer.deploy(NFT);
+    deployer.deploy(GiftChallenge);
 };
